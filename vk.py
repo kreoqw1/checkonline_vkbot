@@ -19,6 +19,12 @@ def write_k_msg(user_id, message, random_id, keyboard):
         keyboard=keyboard
     )
 
+def getrealuid(user_id):
+    res = vk.users.get(
+        user_ids=user_id
+    )
+    real_uid = res[0]['id']
+    return real_uid
 
 vk_session = vk_api.VkApi(token=token)
 vk = vk_session.get_api()
